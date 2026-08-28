@@ -1,0 +1,20 @@
+# Environment / secrets — never commit these
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Vercel
+.vercel/
+
+# Logs
+*.log
+npm-debug.log*

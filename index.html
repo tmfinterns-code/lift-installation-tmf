@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lift Installation and Maintenance Registration | TMF</title>
+  <meta name="description" content="Register for TMF's Lift Installation and Maintenance programme." />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Display typeface -->
+
+
+  <!-- TMF theme -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       NAVBAR — logo only, no visible admin link anywhere
+       ========================================================= -->
+  <header class="tmf-navbar">
+    <div class="container-fluid px-3 px-md-4">
+      <a href="index.html" class="tmf-navbar-brand">
+        <img src="assets\TMF Logo.jpg" alt="TMF logo">
+      </a>
+      <span class="tmf-navbar-tag d-none d-sm-inline">Registration</span>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       SPLIT SCREEN — hero panel (left) + form panel (right)
+       ========================================================= -->
+  <main class="tmf-page-shell">
+
+    <!-- LEFT: brand / visual panel -->
+    <section class="tmf-hero-panel" aria-hidden="true">
+      <div class="tmf-hero-image-card">
+
+        <!-- Badge overlapping the top-left corner of the image -->
+        <div class="tmf-hero-badge">T</div>
+
+        <!-- ============================================================
+             IMAGE PATH — replace this one line with your own image.
+             Put your file in the assets/ folder and update src="" below.
+             ============================================================ -->
+        <img class="tmf-hero-img" src="assets\hero image.png" alt="TMF lift installation and maintenance team">
+
+        <!-- Floating glass card near the bottom of the image -->
+        <div class="tmf-hero-overlay">
+          <div class="tmf-hero-overlay-items">
+            <div class="tmf-hero-overlay-item">
+              <span class="tmf-hero-overlay-icon"><i class="bi bi-shield-check"></i></span>
+              <span>Secure &amp; confidential</span>
+            </div>
+            <div class="tmf-hero-overlay-item">
+              <span class="tmf-hero-overlay-icon"><i class="bi bi-tools"></i></span>
+              <span>For ITI &amp; Polytechnic techs</span>
+            </div>
+          </div>
+          <p class="tmf-hero-overlay-caption">
+            Register once and TMF's team will reach out about matching lift installation &amp; maintenance opportunities.
+          </p>
+        </div>
+      </div>
+
+      <div class="tmf-hero-dots">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+      </div>
+    </section>
+
+    <!-- RIGHT: registration form -->
+    <section class="tmf-form-panel">
+      <div class="tmf-card tmf-form-card">
+
+        <!-- Form state -->
+        <div id="tmf-form-state">
+          <div class="tmf-form-icon-badge"><i class="bi bi-clipboard2-check"></i></div>
+          <h2 class="tmf-form-title">Lift Installation and Maintenance Registration Form</h2>
+          <p class="tmf-form-subtitle">Please provide your details to complete your registration.</p>
+
+          <div id="tmf-submit-error" class="tmf-alert-error" role="alert"></div>
+
+          <form id="tmf-registration-form" novalidate>
+
+            <div class="row tmf-row-gap">
+
+              <!-- Name -->
+              <div class="col-12 tmf-field" data-field="name">
+                <label for="f-name" class="form-label">Name <span class="tmf-required">*</span></label>
+                <div class="tmf-input-icon-group">
+                  <i class="bi bi-person"></i>
+                  <input
+                    type="text"
+                    id="f-name"
+                    name="name"
+                    class="form-control"
+                    maxlength="30"
+                    autocomplete="name"
+                    placeholder="Enter your full name"
+                    required
+                  >
+                </div>
+                <div class="invalid-feedback-tmf"></div>
+              </div>
+
+              <!-- Qualification -->
+              <div class="col-12 col-sm-6 tmf-field" data-field="qualification">
+                <label for="f-qualification" class="form-label">ITI or Polytechnic <span class="tmf-required">*</span></label>
+                <div class="tmf-input-icon-group">
+                  <i class="bi bi-mortarboard"></i>
+                  <select id="f-qualification" name="qualification" class="form-select" required>
+                    <option value="" selected disabled>Select Qualification</option>
+                    <option value="ITI">ITI</option>
+                    <option value="Polytechnic">Polytechnic</option>
+                  </select>
+                </div>
+                <div class="invalid-feedback-tmf"></div>
+              </div>
+
+              <!-- Location -->
+              <div class="col-12 col-sm-6 tmf-field" data-field="location">
+                <label for="f-location" class="form-label">Location <span class="tmf-required">*</span></label>
+                <div class="tmf-input-icon-group">
+                  <i class="bi bi-geo-alt"></i>
+                  <select id="f-location" name="location" class="form-select" required>
+                    <option value="" selected disabled>Select Location</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Others">Others</option>
+                  </select>
+                </div>
+                <div class="invalid-feedback-tmf"></div>
+              </div>
+
+              <!-- Contact number -->
+              <div class="col-12 col-sm-6 tmf-field" data-field="contact_number">
+                <label for="f-contact" class="form-label">Contact Number <span class="tmf-required">*</span></label>
+                <div class="tmf-input-icon-group">
+                  <i class="bi bi-telephone"></i>
+                  <input
+                    type="tel"
+                    id="f-contact"
+                    name="contact_number"
+                    class="form-control"
+                    inputmode="numeric"
+                    maxlength="10"
+                    autocomplete="tel-national"
+                    placeholder="10-digit mobile number"
+                    required
+                  >
+                </div>
+                <div class="invalid-feedback-tmf"></div>
+              </div>
+
+              <!-- Email -->
+              <div class="col-12 col-sm-6 tmf-field" data-field="email">
+                <label for="f-email" class="form-label">Email <span class="tmf-required">*</span></label>
+                <div class="tmf-input-icon-group">
+                  <i class="bi bi-envelope"></i>
+                  <input
+                    type="email"
+                    id="f-email"
+                    name="email"
+                    class="form-control"
+                    autocomplete="email"
+                    placeholder="you@example.com"
+                    required
+                  >
+                </div>
+                <div class="invalid-feedback-tmf"></div>
+              </div>
+
+              <!-- Age -->
+              <div class="col-12 tmf-field" data-field="age">
+                <label for="f-age" class="form-label">Age <span class="tmf-required">*</span></label>
+                <div class="tmf-input-icon-group">
+                  <i class="bi bi-calendar3"></i>
+                  <select id="f-age" name="age" class="form-select" required>
+                    <option value="" selected disabled>Select Age</option>
+                  </select>
+                </div>
+                <div class="invalid-feedback-tmf"></div>
+              </div>
+
+              <div class="col-12 mt-2">
+                <button type="submit" id="tmf-submit-btn" class="btn btn-tmf-primary w-100">
+                  <span id="tmf-submit-label">Submit Registration <i class="bi bi-arrow-right ms-1"></i></span>
+                </button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
+        <!-- Success state (hidden until a successful submit) -->
+        <div id="tmf-success-state" class="tmf-success-state d-none">
+          <div class="tmf-success-icon"><i class="bi bi-check-lg"></i></div>
+          <h3>Registration Successful</h3>
+          <p>Your registration has been submitted successfully. TMF's team will reach out to you shortly.</p>
+          <button type="button" id="tmf-register-another" class="btn btn-tmf-outline">Submit another registration</button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Supabase JS (UMD, pinned version) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.81.1/dist/umd/supabase.js"></script>
+
+  <script src="js/config.js"></script>
+  <script src="js/registration.js"></script>
+
+  <!-- Hidden admin access: Ctrl+Shift+M navigates to admin.html.
+       This is a navigation shortcut only — see js/registration.js.
+       It is intentionally NOT documented anywhere in this UI. -->
+</body>
+</html>
