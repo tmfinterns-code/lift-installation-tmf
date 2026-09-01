@@ -186,6 +186,12 @@
 
       formStateEl.classList.add("d-none");
       successStateEl.classList.remove("d-none");
+
+      // Meta Pixel: fire "Lead" only on a confirmed successful registration,
+      // not on every button click.
+      if (typeof fbq === "function") {
+        fbq("track", "Lead");
+      }
     } catch (err) {
       // Never surface raw Supabase/JS error details to the visitor.
       console.error("Registration submit failed:", err);
