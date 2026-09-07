@@ -393,10 +393,6 @@
     document.getElementById("tmf-stat-iti").textContent = itiRes.count ?? 0;
     document.getElementById("tmf-stat-poly").textContent = polyRes.count ?? 0;
     document.getElementById("tmf-stat-recent").textContent = recentRes.count ?? 0;
-
-    const total = totalRes.count ?? 0;
-    document.getElementById("tmf-header-subtitle").textContent =
-      `${total} registration${total === 1 ? "" : "s"} in the portal`;
   }
 
   // ---------------------------------------------------------------------
@@ -507,6 +503,9 @@
 
     const rows = data || [];
     const totalCount = count || 0;
+
+    document.getElementById("tmf-header-subtitle").textContent =
+      `${totalCount} Registration${totalCount === 1 ? "" : "s"} found`;
 
     if (rows.length === 0) {
       emptyStateEl.classList.remove("d-none");

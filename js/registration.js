@@ -195,7 +195,11 @@
     } catch (err) {
       // Never surface raw Supabase/JS error details to the visitor.
       console.error("Registration submit failed:", err);
-      showSubmitError("We couldn't submit your registration right now. Please try again in a moment.");
+      if (err && err.code === "23505") {
+        showSubmitError("This email or contact number has already been registered.");
+      } else {
+        showSubmitError("We couldn't submit your registration right now. Please try again in a moment.");
+      }
     } finally {
       setSubmitting(false);
     }

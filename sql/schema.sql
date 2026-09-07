@@ -56,6 +56,29 @@ comment on table public.lift_registrations is
   'Public lift installation & maintenance registrations. Insert-only for anon users; select restricted to authorized admins via is_admin().';
 
 -- -----------------------------------------------------------------------------
+-- 1b. Prevent duplicate registrations
+--     One entry per email, one entry per contact number. Wrapped in a DO
+--     block so this file stays safe to re-run without erroring on a
+--     constraint that already exists.
+-- -----------------------------------------------------------------------------
+do $$
+begin
+  if not exists (
+    select 1 from pg_constraint where conname = 'lift_registrations_email_unique'
+  ) then
+    alter table public.lift_registrations
+      add constraint lift_registrations_email_unique unique (email);
+  end if;
+
+  if not exists (
+    select 1 from pg_constraint where conname = 'lift_registrations_contact_number_unique'
+  ) then
+    alter table public.lift_registrations
+      add constraint lift_registrations_contact_number_unique unique (contact_number);
+  end if;
+end $$;
+
+-- -----------------------------------------------------------------------------
 -- 2. Admin authorization table
 --    Maps a Supabase Auth user (auth.users.id) to "is an authorized admin".
 --    There is NO admin password stored anywhere in this table or in code —
